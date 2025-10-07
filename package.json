@@ -17,7 +17,7 @@
     "react-dom": "^18.2.0",
     "react-icons": "^4.3.1",
     "react-modal": "^3.14.4",
-    "react-scripts": "^0.0.0",
+    "react-scripts": "^4.0.3",
     "react-tiny-audio-player": "^1.0.1",
     "react-transition-group": "4.0.0",
     "rooks": "^5.11.0",
@@ -28,8 +28,8 @@
     "zustand": "^3.7.0"
   },
   "scripts": {
-    "start": "react-app-rewired start",
-    "build": "react-app-rewired build",
+    "start": "react-scripts start --openssl-legacy-provider",
+    "build": "react-scripts build --openssl-legacy-provider",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build",
     "test": "react-scripts test",
