@@ -1,5 +1,5 @@
 import { useEffect } from 'react';
-import theme from '~/src/theme';
+import theme from '../theme';
 
 const useSetColor = (nodes) => {
   useEffect(() => {

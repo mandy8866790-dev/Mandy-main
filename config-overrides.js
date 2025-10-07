@@ -1,24 +1,23 @@
-const { addBabelPlugin, override, addBabelPresets } = require('customize-cra');
+const path = require('path');
 
-module.exports = override(
-  addBabelPlugin('babel-plugin-root-import'),
-  ...addBabelPresets(
-    [
-      '@babel/preset-env',
-      {
-        include: [
-          '@babel/plugin-proposal-optional-chaining',
-          '@babel/plugin-proposal-nullish-coalescing-operator',
-          '@babel/plugin-proposal-numeric-separator',
-          '@babel/plugin-proposal-logical-assignment-operators',
-        ],
-        bugfixes: true,
-        loose: true,
-        modules: false,
-        targets: '> 1%, not dead, not ie 11, not op_mini all',
-      },
-    ],
-    '@babel/preset-react',
-    '@babel/preset-typescript'
-  )
-);
+module.exports = function override(config, env) {
+  // 支持可选链语法（?.）
+  config.module.rules.forEach(rule => {
+    if (rule.oneOf) {
+      rule.oneOf.forEach(loader => {
+        if (loader.loader && loader.loader.includes('babel-loader')) {
+          loader.options.plugins = [
+            ...(loader.options.plugins || []),
+            '@babel/plugin-proposal-optional-chaining',
+            '@babel/plugin-proposal-nullish-coalescing-operator'
+          ];
+        }
+      });
+    }
+  });
+
+  // 加入路径别名支持：~ 映射到 src/
+  config.resolve.alias['~'] = path.resolve(__dirname, 'src');
+
+  return config;
+};

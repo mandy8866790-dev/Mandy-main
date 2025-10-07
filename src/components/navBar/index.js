@@ -8,7 +8,7 @@ import {
 } from 'react-icons/ai';
 import { useRaf, useWindowSize } from 'rooks';
 
-import theme from '~/src/theme';
+import theme from '../theme';
 import NavModal from './NavModal';
 import useStore from '../../context/mainStore';
 import CONFIG from '../../configs';

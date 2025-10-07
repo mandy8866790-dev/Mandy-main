@@ -2,7 +2,7 @@ import React, { useRef, useState } from 'react';
 import { useScroll, Billboard, Image } from '@react-three/drei';
 import { useFrame } from '@react-three/fiber';
 import configs from '../../configs';
-import theme from '~/src/theme';
+import theme from '../theme';
 
 const { stars } = configs;
 

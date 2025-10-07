@@ -10,7 +10,7 @@ import { useFrame } from '@react-three/fiber';
 import * as THREE from 'three';
 
 import alphaMap from './textures/alpha-map.png';
-import theme from '~/src/theme';
+import theme from '../theme'
 
 function Hologram() {
   const scroll = useScroll();

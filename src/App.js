@@ -2,7 +2,7 @@ import React from 'react';
 import { ThemeProvider } from 'styled-components';
 
 import MainScene from './mainScene';
-import theme from '~/src/theme';
+import theme from '../theme';
 import NavBar from './components/navBar';
 import UIControls from './components/uiControls';
 
